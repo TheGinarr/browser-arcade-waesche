@@ -1,0 +1,195 @@
+/* ============================================================
+   sortieren/umgebung.css – Räume der Sortierspiele:
+   Wäsche = Waschküche (Fliesen, Leine mit Pfosten, Weidenkörbe),
+   Regale = Markt-Metallregal mit Preisleisten,
+   Gewürze = Küchen-Gewürzregal aus Holz mit Papieretiketten.
+   Eigene CSS-Grafik, in Hell und Dunkel gleich (hell_gen AUS).
+   ============================================================ */
+.brett.waesche-brett,
+.brett.regale-brett,
+.brett.gewuerze-brett {
+  --txt: #f4efe0;
+  --mut: #d9d2c2;
+  --panel2: #2a2f38;
+  --line: #ffffff33;
+  color: var(--txt);
+  border: 0;
+  border-radius: 16px;
+  box-shadow:
+    0 10px 24px #0009,
+    inset 0 2px 0 #ffffff1c;
+}
+
+/* ---------- Waschküche ---------- */
+.brett.waesche-brett {
+  background:
+    linear-gradient(transparent calc(100% - 46px), #6c5a48 calc(100% - 46px)),
+    repeating-linear-gradient(0deg, #ffffff40 0 2px, transparent 2px 34px),
+    repeating-linear-gradient(90deg, #ffffff40 0 2px, transparent 2px 34px),
+    linear-gradient(#5f8f8a, #4a7470);
+  padding-bottom: 26px;
+}
+.waesche-brett .korb {
+  background:
+    repeating-linear-gradient(0deg, #00000026 0 2px, transparent 2px 7px),
+    repeating-linear-gradient(90deg, #ffffff22 0 3px, transparent 3px 8px),
+    linear-gradient(#d9b57a, #a87b42);
+  border: 2px solid #6b4a22;
+  border-top: 5px solid #8a5f2c;
+  box-shadow:
+    inset 0 4px 8px #0005,
+    0 4px 6px #0007;
+}
+.waesche-brett .korb .nr {
+  color: #f4efe0;
+  text-shadow: 0 1px 2px #000;
+}
+.waesche-brett .korb:hover {
+  border-color: #f4efe0;
+}
+.waesche-brett .korb.gewaehlt {
+  border-color: #fff;
+  box-shadow:
+    0 0 0 3px #ffe36e,
+    0 6px 10px #0008;
+}
+.waesche-brett .korb.gewaschen {
+  border-color: #8ee05a;
+  background:
+    repeating-linear-gradient(0deg, #00000020 0 2px, transparent 2px 7px),
+    linear-gradient(#cfe7b0, #8fb766);
+}
+.waesche-brett .leine {
+  padding-top: 20px;
+  border-left: 6px solid #8a929e;
+  border-right: 6px solid #8a929e;
+  border-radius: 2px;
+  background: linear-gradient(90deg, #ffffff10, transparent 20% 80%, #ffffff10);
+}
+.waesche-brett .leine::before {
+  top: 12px;
+  height: 3px;
+  background: #f4efe0;
+  box-shadow: 0 1px 1px #0006;
+}
+.waesche-brett .leine-titel {
+  top: -10px;
+  padding: 1px 8px;
+  border-radius: 4px;
+  color: #2a1a08;
+  background: #f4efe0;
+  box-shadow: 0 1px 2px #0007;
+}
+.waesche-brett .leine-platz {
+  border-color: #ffffff55;
+  background: #ffffff10;
+}
+
+/* ---------- Markt-Regal ---------- */
+.brett.regale-brett {
+  background:
+    radial-gradient(circle, #00000055 0 1.6px, transparent 2.2px) 0 0/14px 14px,
+    linear-gradient(#7d8794, #5b6470);
+}
+.regale-brett .fach {
+  padding: 8px 8px 22px;
+  border-radius: 4px;
+  background: linear-gradient(#2b3038, #3a414b);
+  border: 2px solid #aab2bd;
+  border-bottom: 0;
+  box-shadow:
+    inset 0 6px 10px #0008,
+    0 4px 6px #0007;
+}
+.regale-brett .fach::after {
+  /* Metallboden mit Preisleiste */
+  content: "";
+  position: absolute;
+  left: -2px;
+  right: -2px;
+  bottom: 0;
+  height: 16px;
+  border-radius: 0 0 4px 4px;
+  background:
+    repeating-linear-gradient(90deg, transparent 0 18px, #c9302c 18px 46px, transparent 46px 62px)
+      6px 4px/100% 8px no-repeat,
+    linear-gradient(#f6e27a, #e8c53a);
+  border-top: 3px solid #d2d8df;
+  box-shadow: 0 2px 3px #0008;
+}
+.regale-brett .platz {
+  background: #00000045;
+  border: 1px dashed #ffffff30;
+}
+.regale-brett .fach-rest {
+  color: #f4efe0;
+  position: relative;
+  z-index: 1;
+}
+.regale-brett .fach.ziel-ok {
+  box-shadow:
+    0 0 0 2px #8ee05a inset,
+    0 4px 6px #0007;
+}
+
+/* ---------- Gewürzregal ---------- */
+.brett.gewuerze-brett {
+  background:
+    repeating-linear-gradient(91deg, #ffffff07 0 2px, transparent 2px 11px),
+    repeating-linear-gradient(89deg, #0000001c 0 1px, transparent 1px 27px),
+    linear-gradient(170deg, #7a4a26, #4f2c14);
+  box-shadow:
+    0 0 0 4px #3a200c,
+    0 10px 24px #0009,
+    inset 0 2px 0 #ffffff1c;
+}
+.gewuerze-brett .schiebe .etikett {
+  color: #2a1a08;
+  font-weight: 500;
+  hyphens: auto;
+  overflow-wrap: anywhere;
+  background: linear-gradient(#f3e6c8, #e2cfa4);
+  border-bottom: 4px solid var(--f);
+  border-radius: 3px;
+  box-shadow: 0 2px 3px #0007;
+}
+.gewuerze-brett .schiebe .feld {
+  border-radius: 3px;
+  background: linear-gradient(#00000030, #00000010 70%, transparent);
+  border-bottom: 6px solid #a8743e;
+  box-shadow: 0 3px 0 #3a200c;
+}
+.gewuerze-brett .schiebe .feld.richtig {
+  background: linear-gradient(#9dff0018, #9dff0040);
+}
+.gewuerze-brett .schiebe .pfeil {
+  color: #2a1a08;
+  font-size: 1.05rem;
+  background: radial-gradient(circle at 40% 35%, #fff1b8, #c9a24a 55%, #7a5a1c);
+  border: 1px solid #5a420c;
+  border-radius: 50%;
+  box-shadow:
+    0 2px 3px #0008,
+    inset 0 1px 0 #fff8;
+}
+.gewuerze-brett .schiebe .pfeil.zu {
+  opacity: 0.8;
+  background: #3a200c;
+}
+.gewuerze-brett .schiebe .pfeil:focus-visible {
+  outline-color: #fff;
+}
+
+/* HUD mit 5 Feldern: am Handy 3 + 2 statt abgeschnittener Zeit */
+@media (max-width: 420px) {
+  .hud {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+  }
+  .hud-feld {
+    min-width: 0;
+    flex: 1 1 28%;
+    padding: 8px 6px;
+  }
+}
